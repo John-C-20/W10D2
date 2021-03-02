@@ -42,12 +42,12 @@ var Clock = /*#__PURE__*/function (_React$Component) {
 
   var _super = _createSuper(Clock);
 
-  function Clock(prop) {
+  function Clock(banana) {
     var _this;
 
     _classCallCheck(this, Clock);
 
-    _this = _super.call(this, prop);
+    _this = _super.call(this, banana);
     _this.state = {
       time: new Date()
     };
@@ -58,15 +58,13 @@ var Clock = /*#__PURE__*/function (_React$Component) {
   _createClass(Clock, [{
     key: "render",
     value: function render() {
-      var day = this.state.time.getDay();
-      var month = this.state.time.getMonth();
-      var date = this.state.time.getDate();
-      var year = this.state.time.getFullYear();
-      return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(react__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("h1", null, "The Johns' Big Clock"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null, "Time"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("p", {
+      return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(react__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("h1", null, "The Johns' Big Clock"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
         id: "clock"
-      }, this.state.time.getHours(), ":", this.state.time.getMinutes(), ":", this.state.time.getSeconds()), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null, "Date"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("p", {
-        id: "date"
-      }, day, " ", month, " ", date, " ", year));
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
+        id: "time-div"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("p", null, "Time: "), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("p", null, this.state.time.getHours(), ":", this.state.time.getMinutes(), ":", this.state.time.getSeconds())), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
+        id: "date-div"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("p", null, "Date: "), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("p", null, this.state.time.toDateString()))));
     }
   }, {
     key: "tick",
@@ -30171,6 +30169,16 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
+var options = [{
+  title: 'Cheung',
+  content: 'John'
+}, {
+  title: 'Cigale',
+  content: 'John'
+}, {
+  title: 'Cena',
+  content: 'John'
+}];
 
 function Root() {
   return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_clock_jsx__WEBPACK_IMPORTED_MODULE_2__.default, null));
