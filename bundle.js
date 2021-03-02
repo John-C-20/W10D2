@@ -42,18 +42,48 @@ var Clock = /*#__PURE__*/function (_React$Component) {
 
   var _super = _createSuper(Clock);
 
-  function Clock() {
+  function Clock(prop) {
     var _this;
 
     _classCallCheck(this, Clock);
 
-    return _possibleConstructorReturn(_this);
+    _this = _super.call(this, prop);
+    _this.state = {
+      time: new Date()
+    };
+    _this.tick = _this.tick.bind(_assertThisInitialized(_this));
+    return _this;
   }
 
   _createClass(Clock, [{
     key: "render",
     value: function render() {
-      return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("h1", null, "Big Johns' Clock");
+      var day = this.state.time.getDay();
+      var month = this.state.time.getMonth();
+      var date = this.state.time.getDate();
+      var year = this.state.time.getFullYear();
+      return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(react__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("h1", null, "The Johns' Big Clock"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null, "Time"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("p", {
+        id: "clock"
+      }, this.state.time.getHours(), ":", this.state.time.getMinutes(), ":", this.state.time.getSeconds()), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null, "Date"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("p", {
+        id: "date"
+      }, day, " ", month, " ", date, " ", year));
+    }
+  }, {
+    key: "tick",
+    value: function tick() {
+      this.setState({
+        time: new Date()
+      });
+    }
+  }, {
+    key: "componentDidMount",
+    value: function componentDidMount() {
+      this.intervalId = setInterval(this.tick, 1000);
+    }
+  }, {
+    key: "componentWillUnmount",
+    value: function componentWillUnmount() {
+      clearInterval(this.intervalId);
     }
   }]);
 
